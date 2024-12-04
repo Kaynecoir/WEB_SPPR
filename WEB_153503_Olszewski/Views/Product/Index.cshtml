@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WEB_153503_Olszewski.Domain.Entities.BoardGame>
+
+@{
+    ViewBag.Title = "Index2";
+}
+@* <form>
+    <label>Выберите компанию:</label>
+    <select name="category">
+        <option value="@null">Все</option>
+        @foreach (Category cat in ViewBag.CategoryList)
+        {
+            <option value="@cat.NormalizedName">@cat.Name</option>
+        }
+    </select>
+    <input type="submit" />
+</form> *@
+<div class="col-2 border-2">
+    <ul class="nav ">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"
+               data-bs-toggle="dropdown"
+               href="#"
+               role="button"
+               aria-expanded="false">
+                @ViewData["currentCategory"]
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item"
+                       asp-controller="product"
+                       asp-route-category=@null>Все</a>
+                </li>
+                @foreach (var item in ViewBag.CategoryList)
+                {
+                    <li>
+                        <a class="dropdown-item"
+                           asp-controller="product"
+                           asp-route-category="@item.NormalizedName">
+                            @item.Name
+                        </a>
+                    </li>
+                }
+            </ul>
+        </li>
+    </ul>
+</div><!-- выбор категории -->
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <form>
+                    <div class="card-body">
+                        <img src="@item.Image" />
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Description</p>
+                        <a class="btn btn-primary" asp-controller="Cart" asp-action="Add">Add to cart</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+</div>

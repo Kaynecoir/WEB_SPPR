@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<div class="nav-item">
+	<a class="navbar-text m-sm-auto" asp-controller="Cart" asp-action="Index">
+		<i class="fa-solid fa-cart-shopping"></i> @await Component.InvokeAsync("Cart")
+	</a>
+
+</div>
+<div class="nav-item dropdown">
+	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		User@gmail.com
+		<!-- <img src="images/default-profile-picture.png" width="30"
+		alt="User" class="rounded nav-color" /> -->
+	</a>
+	<div class="dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+		<div>
+			<span class="dropdown-item-text">
+				<!-- <img src="images/default-profile-picture.png"/> -->
+				user@gmail.com
+			</span>
+		</div>
+		<hr class="dropdown-divider">
+		<div>
+			<form id="logoutForm" class="form-inline">
+				<button id="logout" type="submit" class="nav-linkbtn btn-link text-dark" asp-controller="Identity" asp-action="LogOut">
+					Logout
+				</button>
+			</form>
+		</div>
+	</div>
+</div>

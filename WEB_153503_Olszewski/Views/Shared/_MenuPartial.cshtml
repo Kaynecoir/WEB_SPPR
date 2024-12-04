@@ -1,0 +1,27 @@
+﻿@{
+	var controller = ViewContext.RouteData.Values["controller"]?
+					.ToString()?
+					.ToLower()
+					?? String.Empty;
+
+	var area = ViewContext.RouteData.Values["area"]?
+					.ToString()?
+					.ToLower()
+					?? String.Empty;
+}
+
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index">Лб1</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" asp-controller="Product" asp-action="Index">Каталог</a>
+		</li>
+		<li class="nav-item">
+            <a asp-area="Admin" asp-page="/Index" 
+			class="nav-link @(area=="admin"?"active":"")">Администрация</a>
+		</li>
+
+	</ul>
+</div>
