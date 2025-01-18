@@ -23,7 +23,8 @@ namespace WEB_153503_Olszewski.API.Service.GameService
 
         public async Task<ResponseData<GameListModel<BoardGame>>> GetBoardGameListAsync(
             string? categoryNormalizedName,
-            int pageNo = 1, int pageSize = 3
+            int pageNo = 1, 
+            int pageSize = 3
             )
         {
             if (pageSize > _maxPageSize)
@@ -31,47 +32,35 @@ namespace WEB_153503_Olszewski.API.Service.GameService
                 pageSize = _maxPageSize;
             }
 
-            var query = _dbContext.BoardGames.Include("Category").AsQueryable();
+            var query = _dbContext.BoardGames.AsQueryable();
             var dataList = new GameListModel<BoardGame>();
-            if (categoryNormalizedName != null)
-            {
-                query = query
-                .Where(b => b.Category.NormalizedName.Equals(categoryNormalizedName));
-            }
+            
+            query = query.Where(d => categoryNormalizedName == null || d.Category.NormalizedName.Equals(categoryNormalizedName));
+            
 
 
             // количество элементов в списке
             var count = await query.CountAsync();
             if (count == 0)
             {
-                return new ResponseData<GameListModel<BoardGame>>
-                {
-                    Data = dataList
-                };
+                return ResponseData<GameListModel<BoardGame>>.Success(dataList);
             }
 
             // количество страниц
             int totalPages = (int)Math.Ceiling(count / (double)pageSize);
             if (pageNo > totalPages)
             {
-                return new ResponseData<GameListModel<BoardGame>>
-                {
-                    Data = null,
-                    Successfull = false,
-                    ErrorMessage = "No such page"
-                };
+                return ResponseData<GameListModel<BoardGame>>.Error("No such page");
             }
             dataList.Items = await query
+                .OrderBy(d => d.Id)
                 .Skip((pageNo - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
             dataList.CurrentPage = pageNo;
             dataList.TotalPages = totalPages;
-            var response = new ResponseData<GameListModel<BoardGame>>
-            {
-                Data = dataList
-            };
-            return response;
+            
+            return ResponseData<GameListModel<BoardGame>>.Success(dataList);
         }
 
         public async Task<ResponseData<BoardGame>> CreateBoardGameAsync(BoardGame boardGame, IFormFile? formFile)

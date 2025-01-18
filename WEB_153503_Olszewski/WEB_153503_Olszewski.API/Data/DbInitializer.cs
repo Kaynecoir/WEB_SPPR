@@ -14,8 +14,8 @@ namespace WEB_153503_Olszewski.API.Data
             // Выполнение миграций
             await context.Database.MigrateAsync();
 
-            //context.BoardGames.RemoveRange(context.BoardGames.Where(b => true));
-            //await context.SaveChangesAsync();
+            context.BoardGames.RemoveRange(context.BoardGames.Where(b => true));
+            await context.SaveChangesAsync();
 
             // создаем объекты Category
             List<Category> _categoryList = new List<Category>
@@ -32,7 +32,7 @@ namespace WEB_153503_Olszewski.API.Data
 
             string imageRoot = $"{app.Configuration["AppUrl"]!}/images";
 
-            List<BoardGame> _boardGames = new List<BoardGame>
+            List<BoardGame> _boardGamesList = new List<BoardGame>
             {
                 new BoardGame
                 {
@@ -136,7 +136,7 @@ namespace WEB_153503_Olszewski.API.Data
                 }
             };
 
-            await context.BoardGames.AddRangeAsync(_boardGames);
+            await context.BoardGames.AddRangeAsync(_boardGamesList);
             await context.SaveChangesAsync();
         }
     }

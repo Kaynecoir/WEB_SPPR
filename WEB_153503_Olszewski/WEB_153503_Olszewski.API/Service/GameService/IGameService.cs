@@ -12,8 +12,9 @@ namespace WEB_153503_Olszewski.API.Service.GameService
         /// <param name="pageNo">номер страницы списка</param>
         /// <param name="pageSize">количество объектов на странице</param>
         /// <returns></returns>
-        public Task<ResponseData<GameListModel<BoardGame>>> GetBoardGameListAsync(
-            string? categoryNormalizedName, int pageNo = 1, int pageSize = 3);
+        public Task<ResponseData<GameListModel<BoardGame>>> GetBoardGameListAsync(string? categoryNormalizedName, 
+                                                                                  int pageNo = 1, 
+                                                                                  int pageSize = 3);
 
         /// <summary>
         /// Поиск объекта по Id
