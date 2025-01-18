@@ -25,10 +25,10 @@ namespace WEB_153503_Olszewski.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BoardGame>>> GetBoardGames()
         {
-          if (_context.BoardGames == null)
-          {
-              return NotFound();
-          }
+            if (_context.BoardGames == null)
+            {
+                return NotFound();
+            }
             return await _context.BoardGames.ToListAsync();
         }
 
@@ -36,10 +36,10 @@ namespace WEB_153503_Olszewski.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<BoardGame>> GetBoardGame(int id)
         {
-          if (_context.BoardGames == null)
-          {
-              return NotFound();
-          }
+            if (_context.BoardGames == null)
+            {
+                return NotFound();
+            }
             var boardGame = await _context.BoardGames.FindAsync(id);
 
             if (boardGame == null)
@@ -86,10 +86,10 @@ namespace WEB_153503_Olszewski.API.Controllers
         [HttpPost]
         public async Task<ActionResult<BoardGame>> PostBoardGame(BoardGame boardGame)
         {
-          if (_context.BoardGames == null)
-          {
-              return Problem("Entity set 'AppDbContext.BoardGames'  is null.");
-          }
+            if (_context.BoardGames == null)
+            {
+                return Problem("Entity set 'AppDbContext.BoardGames'  is null.");
+            }
             _context.BoardGames.Add(boardGame);
             await _context.SaveChangesAsync();
 

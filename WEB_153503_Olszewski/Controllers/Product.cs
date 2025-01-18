@@ -16,9 +16,9 @@ namespace WEB_153503_Olszewski.Controllers
 			_categoryService = categoryService;
 			category = "role_game";
 		}
-		public async Task<IActionResult> Index(string? category)
+		public async Task<IActionResult> Index(string? category, int pageno = 1)
 		{
-			var productResponse = await _service.GetGameListAsync(category);
+            var productResponse = await _service.GetGameListAsync(category, pageno);
 			if (category != null)
 				ViewData["currentCategory"] = _categoryService.GetCategoryListAsync().Result.Data.Find(c => c.NormalizedName == category).Name;
 			else
@@ -29,5 +29,7 @@ namespace WEB_153503_Olszewski.Controllers
 
             return View(productResponse.Data);
 		}
+
+
 	}
 }

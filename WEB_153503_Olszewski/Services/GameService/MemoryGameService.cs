@@ -75,39 +75,49 @@ namespace WEB_153503_Olszewski.Services.GameService
 					Id = 1, 
 					Name="Dungeon and Dragons",
 					Description="Игра в стиле фэнтези.", 
-					Price = 191.0f, Image="Images/dnd.jpg",
-					Category=_categories.Find(c=>c.NormalizedName.Equals("role_game"))
+					Price = 191.0f, 
+					Image="Images/dnd.jpg",
+					Mime="JPEG",
+                    Category=_categories.Find(c=>c.NormalizedName.Equals("role_game"))
 				},
 				new BoardGame 
 				{
 					Id = 2, 
 					Name="Vampire: the Masquarade",
 					Description="Игра в стиле темного фэнтези.", 
-					Price = 181.0f, Image="Images/vtm.jpg",
-					Category=_categories.Find(c=>c.NormalizedName.Equals("role_game"))
+					Price = 181.0f, 
+					Image="Images/vtm.jpg",
+                    Mime="JPEG",
+                    Category=_categories.Find(c=>c.NormalizedName.Equals("role_game"))
 				},
 				new BoardGame 
 				{
 					Id = 3, 
 					Name="Pathfinder",
 					Description="Игра в стиле фэнтези.", 
-					Price = 171.0f, Image="Images/path.jpg",
-					Category=_categories.Find(c=>c.NormalizedName.Equals("role_game"))
+					Price = 171.0f, 
+					Image="Images/path.jpg",
+                    Mime="JPEG",
+                    Category=_categories.Find(c=>c.NormalizedName.Equals("role_game"))
 				},
 				new BoardGame 
 				{
 					Id = 4, 
 					Name="Catan",
 					Description="Колонизаторы.", 
-					Price = 141.0f, Image="Images/catan.jpg",
-					Category=_categories.Find(c=>c.NormalizedName.Equals("board_game"))
+					Price = 141.0f, 
+					Image="Images/catan.jpg",
+                    Mime="JPEG",
+                    Category=_categories.Find(c=>c.NormalizedName.Equals("board_game"))
 				},
                 new BoardGame 
 				{
 					Id = 5, 
 					Name="Citadel",
                     Description="Цитадель.", 
-					Price = 71.0f, Image="Images/citadel.jpg",
+					Price = 71.0f, 
+					Image="Images/citadel.jpg",
+                    Mime="JPEG",
                     Category=_categories.Find(c=>c.NormalizedName.Equals("board_game"))
 				},
                 new BoardGame 
@@ -115,7 +125,9 @@ namespace WEB_153503_Olszewski.Services.GameService
 					Id = 6, 
 					Name="Bang!",
                     Description="Бэнг!", 
-					Price = 51.0f, Image="Images/bang.jpg",
+					Price = 51.0f, 
+					Image="Images/bang.jpg",
+                    Mime="JPEG",
                     Category=_categories.Find(c=>c.NormalizedName.Equals("board_game"))
 				},
                 new BoardGame 
@@ -123,7 +135,9 @@ namespace WEB_153503_Olszewski.Services.GameService
 					Id = 7, 
 					Name="Dungeon and Dragons V2",
                     Description="Игра в стиле фэнтези.", 
-					Price = 191.0f, Image="Images/dnd.jpg",
+					Price = 191.0f, 
+					Image="Images/dnd.jpg",
+                    Mime="JPEG",
                     Category=_categories.Find(c=>c.NormalizedName.Equals("role_game"))
 				},
                 new BoardGame
@@ -131,7 +145,9 @@ namespace WEB_153503_Olszewski.Services.GameService
                     Id = 8,
                     Name="Bang! Star Wars",
                     Description="Бэнг по Звездным Войнам!",
-                    Price = 71.0f, Image="Images/bang_sw.jpg",
+                    Price = 71.0f, 
+					Image="Images/bang_sw.jpg",
+                    Mime="JPEG",
                     Category=_categories.Find(c=>c.NormalizedName.Equals("board_game"))
                 },
                 new BoardGame
@@ -139,7 +155,9 @@ namespace WEB_153503_Olszewski.Services.GameService
                     Id = 9,
                     Name="Carcassonne",
                     Description="Каркассоны! Средневековье и тайлы!",
-                    Price = 71.0f, Image="Images/carcassonne.jpg",
+                    Price = 71.0f, 
+					Image="Images/carcassonne.jpg",
+                    Mime="JPEG",
                     Category=_categories.Find(c=>c.NormalizedName.Equals("board_game"))
                 },
                 new BoardGame
@@ -147,7 +165,9 @@ namespace WEB_153503_Olszewski.Services.GameService
                     Id = 10,
                     Name="UNO",
                     Description="Крикни UNO раньше других!",
-                    Price = 71.0f, Image="Images/uno.jpg",
+                    Price = 71.0f, 
+					Image="Images/uno.jpg",
+                    Mime="JPEG",
                     Category=_categories.Find(c=>c.NormalizedName.Equals("card_game"))
                 },
             };
