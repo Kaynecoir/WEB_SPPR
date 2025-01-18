@@ -1,4 +1,5 @@
-﻿@model IEnumerable<WEB_153503_Olszewski.Domain.Entities.BoardGame>
+﻿@using WEB_153503_Olszewski.Domain.Models
+@model GameListModel<BoardGame>
 
 @{
     ViewBag.Title = "Index2";
@@ -14,6 +15,8 @@
     </select>
     <input type="submit" />
 </form> *@
+
+<!-- выбор категории -->
 <div class="col-2 border-2">
     <ul class="nav ">
         <li class="nav-item dropdown">
@@ -43,11 +46,11 @@
             </ul>
         </li>
     </ul>
-</div><!-- выбор категории -->
+</div>
 <div class="row">
-    @foreach (var item in Model)
+    @foreach (var item in Model.Items)
     {
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="card text-center">
                 <form>
                     <div class="card-body">
@@ -61,3 +64,31 @@
         </div>
     }
 </div>
+<nav aria-label="...">
+    <ul class="pagination">
+        <li class="page-item disabled">
+            <span class="page-link">Previous</span>
+        </li>
+
+        @for(int i = 1; i < Model.TotalPages+1; i++)
+        {
+            @if(Model.CurrentPage == i)
+            {
+                <li class="page-item active">
+                    <snap class="page-link">@i</snap>
+                </li>
+            }
+            else
+            {
+                <li class="page-item" aria-current="page">
+                    <a class="page-link" href="#">@i</a>
+                </li>
+            }
+
+        }
+
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>

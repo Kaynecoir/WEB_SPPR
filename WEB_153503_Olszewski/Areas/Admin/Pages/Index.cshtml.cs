@@ -27,7 +27,7 @@ namespace WEB_153503_Olszewski.Areas.Admin.Pages
         public async Task<IActionResult> OnGetAsync(int pageNo = 1)
         {
             var response = await _gameService.GetGameListAsync(null, pageNo);
-            if (!response.Success)
+            if (!response.Successfull)
             {
                 return NotFound();
             }

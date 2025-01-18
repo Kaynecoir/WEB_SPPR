@@ -23,10 +23,11 @@ namespace WEB_153503_Olszewski.Controllers
 				ViewData["currentCategory"] = _categoryService.GetCategoryListAsync().Result.Data.Find(c => c.NormalizedName == category).Name;
 			else
 				ViewData["currentCategory"] = "Все";
-			if (!productResponse.Success) return NotFound(productResponse.ErrorMessage);
+			if (!productResponse.Successfull) 
+				return NotFound(productResponse.ErrorMessage);
 			ViewBag.CategoryList = _categoryService.GetCategoryListAsync().Result.Data;
 
-            return View(productResponse.Data.Items);
+            return View(productResponse.Data);
 		}
 	}
 }

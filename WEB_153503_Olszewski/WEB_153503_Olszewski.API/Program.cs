@@ -20,7 +20,6 @@ builder.Services.AddScoped<IGameService, BoardGameService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 builder.Services.AddHttpContextAccessor();
-
 //builder.Services
 //    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 //    .AddJwtBearer(opt =>

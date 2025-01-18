@@ -36,7 +36,7 @@ namespace WEB_153503_Olszewski.Areas.Admin.Pages
                 return NotFound();
             }
             BoardGame = boardgame;
-           ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
             return Page();
         }
 

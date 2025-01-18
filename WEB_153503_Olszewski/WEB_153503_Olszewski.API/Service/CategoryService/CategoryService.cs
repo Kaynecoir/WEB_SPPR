@@ -19,7 +19,7 @@ namespace WEB_153503_Olszewski.API.Service.CategoryService
             return new ResponseData<List<Category>>()
             {
                 Data = data,
-                Success = true
+                Successfull = true
             };
         }
     }

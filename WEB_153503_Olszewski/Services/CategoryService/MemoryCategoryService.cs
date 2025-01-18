@@ -19,8 +19,7 @@ namespace WEB_153503_Olszewski.Services.CategoryService
 				new Category{Id = 3, Name = "Настольные игры", NormalizedName = "board_game"},
 				new Category{Id = 3, Name = "Ролевые игры", NormalizedName = "role_game"},
 			};
-			var result = new ResponseData<List<Category>>();
-			result.Data = categories;
+			var result = ResponseData<List<Category>>.Success(categories);
 			return Task.FromResult(result);
 		}
 	}

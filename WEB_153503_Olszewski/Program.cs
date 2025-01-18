@@ -1,3 +1,4 @@
+using WEB_153503_Olszewski.Extensions;
 using WEB_153503_Olszewski.Services.CategoryService;
 using WEB_153503_Olszewski.Services.GameService;
 
@@ -7,8 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
-builder.Services.AddScoped<ICategoryService, MemoryCategoryService>();
-builder.Services.AddScoped<IGameService, MemoryGameService>();
+builder.RegisterCustomServices();
 
 var app = builder.Build();
 

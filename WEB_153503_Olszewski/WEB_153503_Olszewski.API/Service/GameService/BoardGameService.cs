@@ -57,7 +57,7 @@ namespace WEB_153503_Olszewski.API.Service.GameService
                 return new ResponseData<GameListModel<BoardGame>>
                 {
                     Data = null,
-                    Success = false,
+                    Successfull = false,
                     ErrorMessage = "No such page"
                 };
             }
@@ -89,7 +89,7 @@ namespace WEB_153503_Olszewski.API.Service.GameService
             {
                 return new ResponseData<BoardGame>
                 {
-                    Success = false,
+                    Successfull = false,
                     ErrorMessage = ex.Message
                 };
             }
@@ -97,7 +97,7 @@ namespace WEB_153503_Olszewski.API.Service.GameService
             return new ResponseData<BoardGame>
             {
                 Data = boardGame,
-                Success = true,
+                Successfull = true,
             };
         }
 
@@ -128,7 +128,7 @@ namespace WEB_153503_Olszewski.API.Service.GameService
             {
                 return new ResponseData<BoardGame>
                 {
-                    Success = false,
+                    Successfull = false,
                     ErrorMessage = "No such book"
                 };
             }
@@ -137,7 +137,7 @@ namespace WEB_153503_Olszewski.API.Service.GameService
                 return new ResponseData<BoardGame>
                 {
                     Data = book,
-                    Success = true
+                    Successfull = true
                 };
             }
         }
@@ -151,7 +151,7 @@ namespace WEB_153503_Olszewski.API.Service.GameService
             {
                 return new ResponseData<string>
                 {
-                    Success = false,
+                    Successfull = false,
                     ErrorMessage = "No item found"
                 };
             }
@@ -187,7 +187,7 @@ namespace WEB_153503_Olszewski.API.Service.GameService
             return new ResponseData<string>
             {
                 Data = book.Image,
-                Success = true
+                Successfull = true
             };
         }
 
