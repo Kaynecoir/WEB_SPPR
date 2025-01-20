@@ -10,6 +10,15 @@ builder.Services.AddRazorPages();
 
 builder.RegisterCustomServices();
 
+builder.Services.AddHttpClient<IGameService, ApiGameService>(client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["UriData:ApiUri"]);
+});
+builder.Services.AddHttpClient<ICategoryService, ApiCategoryService>(client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["UriData:ApiUri"]);
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

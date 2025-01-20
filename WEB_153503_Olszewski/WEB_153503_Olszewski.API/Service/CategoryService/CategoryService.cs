@@ -13,6 +13,7 @@ namespace WEB_153503_Olszewski.API.Service.CategoryService
         {
             _dbContext = dbContext;
         }
+
         public async Task<ResponseData<List<Category>>> GetCategoryListAsync()
         {
             var data = await _dbContext.Categories.ToListAsync();
@@ -22,5 +23,13 @@ namespace WEB_153503_Olszewski.API.Service.CategoryService
                 Successfull = true
             };
         }
+
+        public async Task<Category> FindAsync(int id)
+        {
+            var data = await _dbContext.Categories.ToListAsync();
+            Category category = data.Find(x => x.Id == id);
+            return category;
+        }
+
     }
 }

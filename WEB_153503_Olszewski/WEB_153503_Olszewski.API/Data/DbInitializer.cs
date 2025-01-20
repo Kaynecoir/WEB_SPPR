@@ -30,7 +30,7 @@ namespace WEB_153503_Olszewski.API.Data
             await context.SaveChangesAsync();
 
 
-            string imageRoot = $"{app.Configuration["AppUrl"]!}/images";
+            string imageRoot = $"{app.Configuration["AppUri"]!}images";
 
             List<BoardGame> _boardGamesList = new List<BoardGame>
             {

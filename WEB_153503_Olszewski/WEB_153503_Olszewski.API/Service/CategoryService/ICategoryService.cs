@@ -10,5 +10,6 @@ namespace WEB_153503_Olszewski.API.Service.CategoryService
         /// </summary>
         /// <returns></returns>
         public Task<ResponseData<List<Category>>> GetCategoryListAsync();
+        public Task<Category> FindAsync(int id);
     }
 }
